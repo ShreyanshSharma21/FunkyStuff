@@ -1,0 +1,58 @@
+//problem code - DEPCHEF
+//CODECHEF FEB19 long challenge
+package datastructures;
+import java.util.*;
+
+
+public class chef {
+	 
+	public static void main(String [] args)
+	{
+		Scanner obj = new Scanner(System.in);
+		int t,n;
+		t = obj.nextInt();
+		int ans[] = new int[t];
+		for(int i =0;i<t;i++)
+		{
+			n=obj.nextInt();
+			int a[]=new int[n]; int d[]=new int[n]; int sur[]=new int[n];
+			
+			for(int j=0;j<n;j++)
+			a[j]=obj.nextInt();
+			
+			for(int j = 0 ;j<n;j++)
+			d[j]=obj.nextInt();
+			
+			int s=0;
+			
+			for(int k=0;k<n;k++)
+			{
+				if(k==0 && (d[0]>(a[1]+a[n-1])))
+				{
+					sur[s]=d[0];
+					s++;
+				}
+				else if(k==n-1 && ((d[n-1]>a[0]+a[n-2])))
+				{
+					sur[s]=d[n-1];s++;
+				}
+				else if(0<k && k<n-1 && (d[k]>(a[k-1]+a[k+1])))
+				{
+					sur[s]=d[k];s++;
+					
+				}
+				else
+				{
+					sur[s]=-1;
+					s++;
+				}
+			}
+			Arrays.sort(sur);
+			ans[i]=sur[n-1];
+	   }
+		for(int x : ans)
+			System.out.println(x);
+		
+	}
+	
+}
