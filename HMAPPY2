@@ -1,0 +1,53 @@
+package datastructures;
+
+import java.util.*;
+public class stack
+{
+	public static long gcd(long x1,long y1)
+	{
+		while(y1>0)
+		{
+			long temp=y1;
+			y1 = x1%y1;
+			x1=temp;
+			
+		}
+		return x1;
+	}
+	
+	
+	public static long lcm(long x , long y)
+	{
+		return x*(y/gcd(x,y));
+	}
+	public static void main(String [] args)
+		{
+		        Scanner obj = new Scanner(System.in);
+		    	int t;
+		    	t=obj.nextInt();
+		    	String ans[]=new String[t];
+		    	long n,a,b,k;
+		    	for(int i = 0 ; i<t;i++) {
+		    		n=obj.nextLong();
+		    	    a=obj.nextLong();
+		    	    b=obj.nextLong();
+		    	    k=obj.nextLong();
+		    	    long c1,c2,c3,c4,c5;
+		    	    c1 = n/a;
+		    	    c2= n/b;
+		    	    c3=c1+c2;
+		    	    c4 = n/lcm(a,b);
+		    	    c5=Math.abs(c3-2*c4);
+		    	    if(c5>=k)
+		    	    ans[i]="Win";
+		    	    else
+		    	    	ans[i]="Lose";
+		    	    
+		  }
+		    	for(String x : ans)
+		    	System.out.println(x);
+		    	obj.close();
+		    	
+		
+		}
+}
